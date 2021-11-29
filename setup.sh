@@ -1,13 +1,13 @@
 #!/bin/sh
 
 echo Setting up vim
-ln -s $(pwd)/.vimrc ~/.vimrc
+ln -s -v $(pwd)/.vimrc ~/.vimrc
 
 echo Setting up doom emacs...
-ln -s $(pwd)/.doom.d ~/.doom.d
+ln -s -v $(pwd)/.doom.d ~/.doom.d
 
 echo Setting up VSCode...
-ln -s $(pwd)/Code/User/settings.json ~/.config/Code/User/settings.json
-ln -s $(pwd)/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s -v $(pwd)/Code/User/settings.json ~/.config/Code/User/settings.json
+ln -s -v $(pwd)/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
 
 echo Done!
