@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo Setting up vim
+ln -s $(pwd)/.vimrc ~/.vimrc
+
 echo Setting up doom emacs...
 ln -s $(pwd)/.doom.d ~/.doom.d
 
