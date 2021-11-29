@@ -61,4 +61,6 @@ nnoremap <leader>wq :wincmd q<return>
 nnoremap <leader>ww :wincmd w<return>
 nnoremap <leader>wW :wincmd W<return>
 nnoremap <leader>WW :wincmd W<return>
+" Toggle netrw
+nnoremap <leader>op :Lexplore<return>
 " }}}
