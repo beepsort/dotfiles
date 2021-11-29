@@ -1,13 +1,46 @@
 #!/bin/sh
 
+confirm_delete()
+{
+    response=y
+    if [ $OVERWRITE != 0 ]; then
+        read -r -p "Replacing $1, are you sure? [y/N] " response
+    fi
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            rm $1
+	        ;;
+        *)
+            echo skipping...
+	        ;;
+    esac
+}
+
+install_file()
+{
+    echo ~/$1
+    if test -e ~/$1; then
+        confirm_delete ~/$1
+    fi
+    if [ ! -e ~/$1 ]; then
+        ln -s -v $(pwd)/$1 ~/$1
+    fi
+}
+
+if [ $# = 1 ] && [ $1 = "-y" ]; then
+    OVERWRITE=0
+else
+    OVERWRITE=-1
+fi
+
 echo Setting up vim
-ln -s -v $(pwd)/.vimrc ~/.vimrc
+install_file .vimrc
 
 echo Setting up doom emacs...
-ln -s -v $(pwd)/.doom.d ~/.doom.d
+install_file .doom.d
 
 echo Setting up VSCode...
-ln -s -v $(pwd)/Code/User/settings.json ~/.config/Code/User/settings.json
-ln -s -v $(pwd)/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+install_file .config/Code/User/settings.json
+install_file .config/Code/User/keybindings.json
 
 echo Done!
