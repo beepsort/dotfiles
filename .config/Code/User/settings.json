@@ -2,6 +2,7 @@
     "telemetry.telemetryLevel": "off",
     "editor.minimap.enabled": false,
     "editor.guides.bracketPairs": true,
+    "editor.lineNumbers": "relative",
     "vim.sneak": true,
     "vim.easymotion": true,
     "vim.leader": "<space>",

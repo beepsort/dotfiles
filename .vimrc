@@ -30,7 +30,7 @@ set showcmd
 ""set hidden " allow buffers to be hidden with unsaved changes
 set cursorline
 set number
-" set relativenumber
+set relativenumber
 set lsp=1
 set laststatus=2 " always show status line
 " }}}
