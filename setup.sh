@@ -33,6 +33,9 @@ else
     OVERWRITE=-1
 fi
 
+echo Setting up Tmux
+install_file .tmux.conf
+
 echo Setting up vim
 install_file .vimrc
 
