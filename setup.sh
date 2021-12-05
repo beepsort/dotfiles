@@ -36,6 +36,10 @@ fi
 echo Setting up vim
 install_file .vimrc
 
+echo Setting up neovim
+install_file .config/nvim/init.lua
+install_file .config/nvim/lua/conf
+
 echo Setting up doom emacs...
 install_file .doom.d
 
