@@ -51,3 +51,11 @@ key_mapper('n', '<leader>gf', ':lua vim.lsp.buf.formatting()<CR>')
 key_mapper('n', '[d', ':lua vim.diagnostic.open_float()<CR>')
 key_mapper('n', ']d', ':lua vim.diagnostic.open_float()<CR>')
 key_mapper('n', '<leader>rr', ':lua vim.lsp.buf.rename()<CR>')
+
+-- debugging
+key_mapper('n', '<leader>bb', ':lua require"dap".toggle_breakpoint()<CR>')
+key_mapper('n', '<leader>bc', ':lua require"dap".continue()<CR>')
+key_mapper('n', '<leader>bo', ':lua require"dap".step_over()<CR>')
+key_mapper('n', '<leader>bi', ':lua require"dap".step_into()<CR>')
+key_mapper('n', '<leader>br', ':lua require"dap".repl.open()<CR>')
+-- add :help dap-widgets in future

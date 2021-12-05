@@ -36,6 +36,13 @@ return require('packer').startup(function(use)
     }
     -- util
     use('easymotion/vim-easymotion')
+    -- successor to vim-sneak
+    use {
+        'ggandor/lightspeed.nvim',
+        requires = {
+            'tpope/vim-repeat'
+        }
+    }
     -- lsp
     use('neovim/nvim-lspconfig')
     -- completion
@@ -45,6 +52,13 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lua',
             'hrsh7th/cmp-nvim-lsp',
         },
+    }
+    -- debugging
+    use {
+        'mfussenegger/nvim-dap',
+        requires = {
+            'mfussenegger/nvim-dap-python'
+        }
     }
     -- treesitter
     use {
