@@ -27,8 +27,8 @@ key_mapper('n', '<leader>ww', ':wincmd w<return>')
 key_mapper('n', '<leader>wW', ':wincmd W<return>')
 key_mapper('n', '<leader>WW', ':wincmd W<return>')
 
--- Toggle netrw
-key_mapper('n', '<leader>op', ':Lexplore<return>')
+-- Toggle file tree
+key_mapper('n', '<leader>op', ':NvimTreeToggle<CR>')
 
 -- Telescope
 key_mapper('n', '<leader>ff', ':lua require"telescope.builtin".find_files { previewer = false }<CR>')

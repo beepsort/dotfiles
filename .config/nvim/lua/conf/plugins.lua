@@ -13,8 +13,14 @@ return require('packer').startup(function(use)
     use('ishan9299/nvim-solarized-lua')
     -- speed up launch
     use('nathom/filetype.nvim')
-    -- display buffers
+    -- ui
     use('ap/vim-buftabline')
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons'
+        }
+    }
     -- use('nvim-lualine/lualine.nvim')
     -- fuzzy find
     use {
@@ -38,12 +44,13 @@ return require('packer').startup(function(use)
         requires = {
             'hrsh7th/cmp-nvim-lua',
             'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-path',
-            'hrsh7th/cmp-nvim-buffer',
         },
     }
     -- treesitter
-    use 'nvim-treesitter/nvim-treesitter'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
     if packer_bootstrap then
         require('packer').sync()

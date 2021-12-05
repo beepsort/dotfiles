@@ -7,8 +7,10 @@ for _, lsp in ipairs(servers) do
 end
 
 require('nvim-treesitter.configs').setup {
+    ensure_installed = {'lua', 'python', 'bash', 'c', 'cpp', 'javascript', 'typescript', 'json', 'latex'},
     highlight = {
-        enable = true
+        enable = true,
+        additional_vim_regex_highlighting = false
     }
 }
 
