@@ -30,12 +30,20 @@ key_mapper('n', '<leader>WW', ':wincmd W<return>')
 -- Toggle file tree
 key_mapper('n', '<leader>op', ':NvimTreeToggle<CR>')
 
+-- Terminal
+key_mapper('n', '<leader>ot', ':terminal<CR>')
+key_mapper('t', '<A-n>', '<C-\\><C-N>')
+key_mapper('t', '<A-w>', '<C-\\><C-N>:wincmd w<CR>')
+key_mapper('n', '<A-w>', ':wincmd w<CR>')
+
 -- Telescope
-key_mapper('n', '<leader>ff', ':lua require"telescope.builtin".find_files { previewer = false }<CR>')
+key_mapper('n', '<leader>ff', ':lua require"telescope.builtin".find_files()<CR>')
 key_mapper('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
 key_mapper('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
-key_mapper('n', '<leader>gf', ':lua require"telescope.builtin".git_files { previewer = false }<CR>')
+key_mapper('n', '<leader>gf', ':lua require"telescope.builtin".git_files()<CR>')
 key_mapper('n', '<leader>gg', ':lua require"telescope.builtin".git_status()<CR>')
+key_mapper('n', '<A-b>', '<C-\\><C-N>:lua require"telescope.builtin".buffers()<CR>')
+key_mapper('t', '<A-b>', '<C-\\><C-N>:lua require"telescope.builtin".buffers()<CR>')
 
 -- Lsp
 key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')

@@ -70,3 +70,4 @@ dap.configurations.javascript = {
     processId = require'dap.utils'.pick_process,
   },
 }
+dap.configurations.typescript = dap.configurations.javascript;

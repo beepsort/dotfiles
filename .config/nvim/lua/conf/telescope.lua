@@ -1,4 +1,4 @@
----- telescope config
+---- telscope config
 require('telescope').setup {
   defaults = {
     vimgrep_arguments = {
@@ -11,7 +11,7 @@ require('telescope').setup {
       '--smart-case',
     },
     prompt_prefix = '>',
-    initial_mode = 'insert',
+    initial_mode = 'normal',
     selection_strategy = 'reset',
     sorting_strategy = 'ascending',
     layout_strategy = 'horizontal',
@@ -29,6 +29,11 @@ require('telescope').setup {
     set_env = {
       ['COLORTERM'] = 'truecolor',
     },
+  },
+  pickers = {
+      buffers = {
+          sort_lastused = true
+      }
   },
   extensions = {
     fzf = {
