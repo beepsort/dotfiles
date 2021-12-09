@@ -23,6 +23,7 @@ o.mouse='a'
 -- let g:vim_json_syntax_conceal = 0 "Disabling concealing json syntax by default
 o.showmode=true
 o.showcmd=true
+o.hidden=true
 o.cursorline=true
 o.number=true
 o.relativenumber=true
