@@ -15,6 +15,9 @@ key_mapper('n', '<C-f>', ':sus<cr>')
 key_mapper('', '<F1>', '<Esc>')
 key_mapper('i', '<F1>', '<Esc>')
 
+-- clear search
+key_mapper('n', '<leader>/', ':let @/ = ""<return>')
+
 -- create splits
 key_mapper('n', '<leader>wv', ':wincmd v<return>')
 key_mapper('n', '<leader>ws', ':wincmd s<return>')
