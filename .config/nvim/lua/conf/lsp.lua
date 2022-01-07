@@ -1,5 +1,5 @@
 local nvim_lsp = require('lspconfig')
-local servers = {'pyright', 'tsserver', 'ccls'}
+local servers = {'pyright', 'tsserver', 'ccls', 'rust_analyzer'}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach
@@ -7,7 +7,7 @@ for _, lsp in ipairs(servers) do
 end
 
 require('nvim-treesitter.configs').setup {
-    ensure_installed = {'lua', 'python', 'bash', 'c', 'cpp', 'javascript', 'typescript', 'json', 'latex', 'java'},
+    ensure_installed = {'lua', 'python', 'bash', 'c', 'cpp', 'javascript', 'typescript', 'json', 'latex', 'java', 'rust'},
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false
