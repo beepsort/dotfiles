@@ -1,13 +1,27 @@
 local nvim_lsp = require('lspconfig')
-local servers = {'pyright', 'tsserver', 'ccls', 'rust_analyzer'}
+local servers = {'pyright'}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach
     }
 end
 
+nvim_lsp.ccls.setup{
+    filetypes = {"c", "cpp", "objc", "objcpp"}
+}
+
+nvim_lsp.rust_analyzer.setup{
+   settings = {
+     ['rust-analyzer'] = {
+       diagnostics = {
+         enable = false;
+       }
+     }
+   }
+ }
+
 require('nvim-treesitter.configs').setup {
-    ensure_installed = {'lua', 'python', 'bash', 'c', 'cpp', 'javascript', 'typescript', 'json', 'latex', 'java', 'rust'},
+    ensure_installed = {'lua', 'python', 'bash', 'c', 'cpp', 'javascript', 'typescript', 'latex', 'java', 'rust'},
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false
@@ -44,6 +58,9 @@ cmp.setup {
     }
 }
 
+local lsp_sig_config = {}
+require('lsp_signature').setup(lsp_sig_config)
+
 local dap = require('dap')
 require('dap-python').setup('./env/bin/python')
 dap.adapters.node2 = {
@@ -51,23 +68,57 @@ dap.adapters.node2 = {
   command = 'node',
   args = {os.getenv('NODEDEBUG2')},
 }
-dap.configurations.javascript = {
+-- requires lldb-vscode to be installed
+dap.adapters.lldb = {
+    type = 'executable',
+    command = '/usr/bin/lldb-vscode-11',
+    name = 'lldb'
+}
+
+dap.configurations.cpp = {
   {
     name = 'Launch',
-    type = 'node2',
+    type = 'lldb',
     request = 'launch',
-    program = '${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach to process',
-    type = 'node2',
-    request = 'attach',
-    processId = require'dap.utils'.pick_process,
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
   },
 }
-dap.configurations.typescript = dap.configurations.javascript;
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = {
+  {
+    -- ... the previous config goes here ...,
+    initCommands = function()
+      -- Find out where to look for the pretty printer Python module
+      local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
+
+      local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+      local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
+
+      local commands = {}
+      local file = io.open(commands_file, 'r')
+      if file then
+        for line in file:lines() do
+          table.insert(commands, line)
+        end
+        file:close()
+      end
+      table.insert(commands, 1, script_import)
+
+      return commands
+    end,
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  },
+}

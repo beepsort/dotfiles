@@ -10,9 +10,8 @@ end
 return require('packer').startup(function(use)
     use('wbthomason/packer.nvim')
     -- colours
-    use('ishan9299/nvim-solarized-lua')
-    -- speed up launch
-    use('nathom/filetype.nvim')
+    -- use('ishan9299/nvim-solarized-lua')
+    use('ellisonleao/gruvbox.nvim')
     -- ui
     use('ap/vim-buftabline')
     use {
@@ -35,7 +34,7 @@ return require('packer').startup(function(use)
         run = 'make',
     }
     -- util
-    use('easymotion/vim-easymotion')
+    -- use('easymotion/vim-easymotion')
     -- successor to vim-sneak
     use {
         'ggandor/lightspeed.nvim',
@@ -52,6 +51,9 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lua',
             'hrsh7th/cmp-nvim-lsp',
         },
+    }
+    use {
+        'ray-x/lsp_signature.nvim'
     }
     -- debugging
     use {

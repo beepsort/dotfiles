@@ -6,6 +6,7 @@ o.shiftwidth=4
 o.softtabstop=4
 o.expandtab=true
 o.fenc='utf-8'
+o.filetype="on"
 o.textwidth=120
 o.autoindent=true
 o.smartindent=true
@@ -37,4 +38,7 @@ o.smartcase=true
 o.ignorecase=true
 
 o.termguicolors=true
-vim.cmd("colorscheme solarized")
+vim.cmd("silent! colorscheme gruvbox")
+--o.background="dark"
+vim.g.buftabline_numbers=2
+vim.g.buftabline_indicators=true

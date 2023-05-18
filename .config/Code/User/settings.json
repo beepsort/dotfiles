@@ -1,52 +1,118 @@
 {
-    "telemetry.telemetryLevel": "off",
-    "editor.minimap.enabled": false,
-    "editor.guides.bracketPairs": true,
-    "editor.lineNumbers": "relative",
-    "vim.sneak": true,
-    "vim.easymotion": true,
-    "vim.leader": "<space>",
-    "vim.incsearch": true,
-    "vim.hlsearch": false,
-    "vim.normalModeKeyBindings": [
-        {
-            "before": ["<tab>"],
-            "commands": ["workbench.action.nextEditor"]
-        },
-        {
-            "before": ["<S-tab>"],
-            "commands": ["workbench.action.previousEditor"]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-          "before": ["<leader>", "w", "w"],
-          "commands": ["workbench.action.navigateEditorGroups"]
-        },
-        {
-          "before": ["<leader>", "w", "v"],
-          "commands": ["workbench.action.splitEditor"]
-        },
-        {
-          "before": ["<leader>", "w", "s"],
-          "commands": ["workbench.action.splitEditorOrthogonal"]
-        },
-        {
-          "before": ["<leader>", "o", "p"],
-          "commands": ["workbench.action.toggleSidebarVisibility"]
-        },
-        {
-          "before": ["<leader>", "w", "q"],
-          "commands": ["workbench.action.closeActiveEditor"]
-        },
-        {
-          "before": ["<leader>", "o", "t"],
-          "commands": ["workbench.action.terminal.toggleTerminal"]
-        }
-    ],
-    "workbench.colorTheme": "Better Solarized Dark",
-    "gitlens.gitCommands.skipConfirmations": [
-      "fetch:command",
-      "switch:command"
-    ],
+  "telemetry.telemetryLevel": "off",
+  "editor.minimap.enabled": false,
+  "editor.guides.bracketPairs": true,
+  "editor.lineNumbers": "relative",
+  "vim.sneak": true,
+  "vim.easymotion": true,
+  "vim.leader": "<space>",
+  "vim.incsearch": true,
+  "vim.hlsearch": false,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<tab>"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
+    },
+    {
+      "before": [
+        "<S-tab>"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "w",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.navigateEditorGroups"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w",
+        "v"
+      ],
+      "commands": [
+        "workbench.action.splitEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.splitEditorOrthogonal"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w",
+        "q"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.terminal.toggleTerminal"
+      ]
+    }
+  ],
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "switch:command"
+  ],
+  "haskell.manageHLS": "GHCup",
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "window.autoDetectColorScheme": true,
+  "window.autoDetectHighContrast": false,
+  "window.titleBarStyle": "custom",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true
+  },
+  "git.autoRepositoryDetection": false,
+  "git.decorations.enabled": false,
+  "window.zoomLevel": 1,
+  "jupyter.widgetScriptSources": [
+    "jsdelivr.com",
+    "unpkg.com"
+  ],
+  "security.workspace.trust.untrustedFiles": "open",
+  "notebook.lineNumbers": "on",
+  "ltex.language": "en-GB",
+  "workbench.colorTheme": "Newton Next (Official)",
 }
